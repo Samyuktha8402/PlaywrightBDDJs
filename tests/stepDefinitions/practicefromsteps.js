@@ -1,4 +1,4 @@
-const { Registration } =  require('../pages/Registration');
+const { Registration } =  require('../pages/practiceformpage');
 const { defineParameterType, When, Given,Then, And } = require("@cucumber/cucumber")
 const path = require("path") 
 const playwright = require('@playwright/test');
