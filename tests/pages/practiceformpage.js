@@ -34,8 +34,9 @@ class Registration{
     async hobbies(){
         await this.studenthobbies.click()
     }
-    async upload(uploadfile){
-        await this.uploadfile.setInputfiles(uploadfile)
+    async uploadfile1(pathname){
+        // await expect(uploadfile).toBeVisible()
+        await this.uploadfile.setInputFiles(pathname)
     }
     async address(currentaddress){
         await this.currentaddress.fill(currentaddress)
@@ -45,5 +46,6 @@ class Registration{
         await this.dropdownstate.click()
         await this.submit.click();
     }
+    
 }
 module.exports = { Registration };

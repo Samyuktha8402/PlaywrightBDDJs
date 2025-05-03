@@ -1,5 +1,6 @@
 const { Registration } =  require('../pages/practiceformpage');
 const { defineParameterType, When, Given,Then, And } = require("@cucumber/cucumber")
+const { excelread } =  require('../pages/excelReader');
 const path = require("path") 
 const playwright = require('@playwright/test');
 
@@ -21,12 +22,21 @@ Then ('I click hobbies',{timeout: 100 * 1000}, async function (){
     await this.Registration.hobbies()
 
 })
-Then ('I upload file {string}',{timeout:100*1000},async function(uploadfile){
-    await this.Registartion.upload(uploadfile)
+Then ('I upload file',{timeout:100*1000},async function(){
+    // this.Registration = new Registration(this.page);
+    await this.Registration.uploadfile1('testdata/XPATH.pdf')
 })
 Then ('I enter {string}',{timeout: 100*1000}, async function(currentaddress){
     await this.Registration.address(currentaddress)
 })
 Then ('I select state and dropdown and submit',{timeout: 100*1000},async function(){
     await this.Registration.stateandsubmit()
+})
+
+When ('I login with credentials from excel file {string}',{timeout: 100*1000},async function(filepath){
+    console.log("print me")
+    this.excelread = new excelread(this.page);
+    const data = await this.excelread.excelreaddata(filepath)
+    this.exceldata = data
+    console.log(data)
 })
