@@ -8,7 +8,7 @@ class Registration{
         this.studentGender = page.locator('//label[text()="Female"]')
         this.studentmobile = page.locator("#userNumber")
         this.studentDOB = page.locator("#dateOfBirthInput")
-        this.studentsubjects = page.locator('//div[@id="subjectsContainer"]//div//div')
+        //this.studentsubjects = page.locator('(//div[@id="subjectsContainer"]//div)[1]')
         this.studenthobbies = page.locator("//label[text()='Sports']")
         this.uploadfile = page.locator("#uploadPicture")
         this.currentaddress =page.locator("#currentAddress")
@@ -16,32 +16,36 @@ class Registration{
         this.dropdownstate  = page.locator("//div[text()='NCR']")
         this.submit = page.locator("#submit")
     }
-    async filldetails(sfn1,sln1,testemail){
-        await this.studentfirstname.fill(sfn1)
-        await this.studentlastname.fill(sln1)
-        await this.studentemail.fill(testemail)
+    async filldetails(studentfirstname,studentlastname,studentemail){
+        await this.studentfirstname.fill(studentfirstname)
+        await this.studentlastname.fill(studentlastname)
+        await this.studentemail.fill(studentemail)
     }
     async Gender(){
         await this.studentGender.click()
     }
-    async mobilenum(num,dob,subjects){
-        await this.studentmobile.fill(num)
-        await this.studentDOB.fill(dob)
-        await this.studentsubjects.fill(subjects)
-    }
+    async mobilenum(studentmobile,studentDOB){
+        await this.studentmobile.fill(studentmobile)
+        await this.studentDOB.fill(studentDOB)}
+    // async subject(studentsubjects){
+    //     await this.studentsubjects.click()
+    //     await this.studentsubjects.fill(studentsubjects)
+    //}
     async hobbies(){
         await this.studenthobbies.click()
     }
-    async uploadfile(){
-        await this.uploadfile.setInputfiles('testdata\XPATH.pdf')
+    async uploadfile1(pathname){
+        // await expect(uploadfile).toBeVisible()
+        await this.uploadfile.setInputFiles(pathname)
     }
-    async address(testaddress){
-        await this.currentaddress.fill(testaddress)
+    async address(currentaddress){
+        await this.currentaddress.fill(currentaddress)
     }
     async stateandsubmit(){
         await this.selectstate.click()
         await this.dropdownstate.click()
         await this.submit.click();
     }
+    
 }
 module.exports = { Registration };

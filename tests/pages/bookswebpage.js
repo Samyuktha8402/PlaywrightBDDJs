@@ -10,11 +10,11 @@ class Bookswebpage{
         this.register12 = bookpage.locator("#register")
 
     }
-    async enterDetails(firstname1,lastname1,username1,password1) {
-        await this.firstname.fill(firstname1)
-        await this.lastname.fill(lastname1)
-        await this.username12.fill(username1);
-        await this.password12.fill(password1);
+    async enterDetails(firstname,lastname,username12,password12) {
+        await this.firstname.fill(firstname)
+        await this.lastname.fill(lastname)
+        await this.username12.fill(username12);
+        await this.password12.fill(password12);
         await this.captcha.click()
       }
     //   async clickcaptcha(){
