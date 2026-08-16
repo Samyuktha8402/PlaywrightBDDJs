@@ -1,5 +1,16 @@
 import {test,expect} from '@playwright/test'
 test('drag and drop',async({page})=>{
+    //network logs
+    page.on('request',request=>{
+        console.log(`REQUEST: ${request.method()} ${request.url()}`);
+    });
+    page.on('response',response=>{
+        console.log(`RESPONSE: ${response.status()} ${response.url()}`);
+    });
+    //Browser console logs
+    page.on('console',msg=>{
+        console.log(`CONSOLE: ${msg.type()} ${msg.text()}`);
+    })
      // 1. Open Selenium Playground
   await page.goto('https://www.testmuai.com/selenium-playground/');
 
