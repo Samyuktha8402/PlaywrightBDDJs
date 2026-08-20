@@ -1,6 +1,6 @@
 Feature: test feature file 
 Scenario: Verify Login
-    When I enter the "firstname" "lastname" "email" 
+    When I enter the "firstname" "lastname" "samyuktha.ch@yopmail.com" 
     Then I enter "Gender" "99081" "14 Aug 2000"
     Then enter "subjects"
     Then click hobbies

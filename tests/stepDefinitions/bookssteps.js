@@ -19,7 +19,7 @@ Then('click hobbies', {timeout: 100 * 1000} , async function(){
     await this.Bookswebpage.enterDetails();
 }
 )
-Then('I upload the picture',{timeout: 100 * 1000} , async function(picture){
+Then('I upload the picture',{timeout: 100 * 1000} , async function(){
     await this.Bookswebpage.pictureupload();
 }
 
@@ -29,7 +29,7 @@ Then('I enter the {string}',{timeout: 100 * 1000} , async function(curraddress){
 }
 )
 Then('I select state and city',{timeout: 100 * 1000} , async function(){
-    await this.Bookswebpage.enterdetails5(state,statedropdown,city,citydropdown);
+    await this.Bookswebpage.enterdetails5(state,city);
 }
 )
 

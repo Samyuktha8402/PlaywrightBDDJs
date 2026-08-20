@@ -11,7 +11,7 @@ class Bookswebpage{
         this.inputdob=bookpage.locator("//div[@role='gridcell' and @aria-label='Choose Wednesday,March 4th,2026']")
         this.subjects=bookpage.locator("#subjectsInput")
         this.hobbies=bookpage.locator("#hobbies-checkbox-1")
-        this.picture=bookpage.locator("#uploadPicture")
+        this.picture=bookpage.locator("input[label='Select picture']")
         this.curraddress=bookpage.locator("#currentAddress")
         this.state=bookpage.locator("#react-select-3-placeholder")
         this.statedropdown=bookpage.locator("//*[text()='Uttar Pradesh']")
@@ -32,7 +32,7 @@ class Bookswebpage{
         
       }
       async enterDetails3(english) {
-        await this.subjects.fill(english)
+        await this.subjects.type(english)
         
       }
       async enterDetails(hobbies) {
@@ -41,16 +41,15 @@ class Bookswebpage{
       }
 
       async pictureupload() {
-        await this.picture.setInputFiles('c:\Users\Sai\Downloads/sdr pic.jpg')
+        const filepath = path.join(__dirname,'../testdata\XPATH.pdf');
+        await this.picture.setInputFiles(filepath)
       }
       async enterDetails4(bengaluru){
         await this.curraddress.fill(bengaluru)
       }
-      async enterdetails5(state,statedropdown,city,citydropdown){
-        await this.state.click()
-        await this.statedropdown.click()
-        await this.city.click()
-        await this.citydropdown.click()
+      async enterdetails5(state,city){
+        await this.state.selectOption('Uttar Pradesh')
+        await this.city.selectOption('Agra')
       }
 
       
