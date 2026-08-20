@@ -1,6 +1,6 @@
 function secondlarge(arr){
     const removeduplicates = [...new Set(arr)];
-    let a=removeduplicates.sort((a,b)=>a-b);
+    let a=removeduplicates.sort((a,b)=>b-a);
     return a[1];
     
     
