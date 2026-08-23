@@ -1,15 +1,29 @@
+// function countcharfreq(str){
+//     let freq={};
+//         for(let char of str){
+//             if(freq[char]){
+//                 freq[char]++;
+//             }
+//             else{
+//                 freq[char]=1;
+//             }
+
+
+//         }
+//         return freq;
+//     }
+// console.log(countcharfreq('apple'))
+
 function countcharfreq(str){
     let freq={};
-        for(let char of str){
-            if(freq[char]){
-                freq[char]++;
-            }
-            else{
-                freq[char]=1;
-            }
-
-
+    for (char of str){
+        if (freq[char]){
+            freq[char]++;
         }
-        return freq;
+        else{
+            freq[char]=1;
+        }
     }
+    return freq;
+}
 console.log(countcharfreq('apple'))
