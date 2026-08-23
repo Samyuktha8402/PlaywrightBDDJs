@@ -7,7 +7,7 @@ Before(async function () {
     const browser = await playwright.chromium.launch({ headless: false, });
     const context = await browser.newContext();
     this.page =  await context.newPage();
-    this.page.goto('https://demoqa.com/automation-practice-form')
+    this.page.goto('https://www.testmuai.com/selenium-playground/')
   });
 
   AfterStep( async function ({result}) {
