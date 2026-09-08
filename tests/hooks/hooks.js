@@ -1,13 +1,16 @@
-const {After, Before,AfterStep,Status} = require('@cucumber/cucumber');
+const {After, Before,AfterStep,AfterAll,Status} = require('@cucumber/cucumber');
 const playwright = require('@playwright/test');
 
-Before(async function () {
+Before(async function (scenario) {
     // This hook will be executed before all scenarios
+    console.log(
+      `\nWorker PID: ${process.pid} | Scenario: ${scenario.pickle.name}`
+    );
     console.log("i am first");
     const browser = await playwright.chromium.launch({ headless: false, });
     const context = await browser.newContext();
     this.page =  await context.newPage();
-    this.page.goto('https://www.testmuai.com/selenium-playground/')
+    await this.page.goto('https://www.testmuai.com/selenium-playground/')
   });
 
   AfterStep( async function ({result}) {
@@ -20,12 +23,12 @@ Before(async function () {
 
     }
   });
-After(async function () {
+  After(async function () {
     // Assuming this.driver is a selenium webdriver
     console.log("i am last");
-    // await this.page?.close();
-    // await this.context?.close();
-    // await this.browser?.close();
+    await this.page?.close();
+    await this.context?.close();
+    await this.browser?.close();
     
     
   });
