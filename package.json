@@ -13,6 +13,7 @@
     "@types/node": "^22.14.1"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^11.2.0"
+    "@cucumber/cucumber": "^11.2.0",
+    "xlsx": "^0.18.5"
   }
 }

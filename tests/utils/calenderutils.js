@@ -1,4 +1,4 @@
-const { expect } from '@playwright/test';
+const { expect } = require('@playwright/test');
 
 async function selectDate(
   page,
