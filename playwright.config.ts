@@ -12,7 +12,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  workers: 4,
+  // workers: 4,
   /* Run tests in files in parallel */
   // fullyParallel: true,
   // /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -22,12 +22,12 @@ export default defineConfig({
   // /* Opt out of parallel tests on CI. */
   // workers: process.env.CI ? 1 : undefined,
   // /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  // reporter: [
-  //   ['html',{
-  //     outputFolder: process.env.REPORT_DIR || 'playwright-report',
-  //     open: 'never',
-  //   }]
-  // ],
+  reporter: [
+    ['html',{
+      outputFolder: process.env.REPORT_DIR || 'playwright-report',
+      open: 'never',
+    }]
+  ],
 
     
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -39,6 +39,7 @@ export default defineConfig({
     trace: 'on',
     screenshot: 'on',
     video: 'on',
+    // storageState:'auth.json'
     
 
   },
@@ -61,10 +62,10 @@ export default defineConfig({
     // },
 
     /* Test against mobile viewports. */
-    {
-      name: 'Mobile Chrome',
-      use: { ...devices['Pixel 5'] },
-    },
+    // {
+    //   name: 'Mobile Chrome',
+    //   use: { ...devices['Pixel 5'] },
+    // },
     // {
     //   name: 'Mobile Safari',
     //   use: { ...devices['iPhone 12'] },
